@@ -102,7 +102,7 @@ namespace MyEvernote.BusinessLayer
 
         public BusinessLayerResult<EvernoteUser> UpdateProfile(EvernoteUser data)
         {
-            EvernoteUser db_user = Find(x => x.Username == data.Username || x.Email == data.Email);
+            EvernoteUser db_user = Find(x => x.Id != data.Id && (x.Username == data.Username || x.Email == data.Email));
             BusinessLayerResult<EvernoteUser> res = new BusinessLayerResult<EvernoteUser>();
 
             if (db_user != null && db_user.Id != data.Id)
