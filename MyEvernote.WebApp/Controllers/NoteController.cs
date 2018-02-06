@@ -173,6 +173,9 @@ namespace MyEvernote.WebApp.Controllers
         {
             int res = 0;
 
+            if(CurrentSession.User == null)
+                return Json(new { hasError = true, errorMessage = "Beğenme işlemi için giriş yapmalısınız.", result = 0 });
+
             Liked like =
                 likedManager.Find(x => x.Note.Id == noteid && x.LikedUser.Id == CurrentSession.User.Id);
 
