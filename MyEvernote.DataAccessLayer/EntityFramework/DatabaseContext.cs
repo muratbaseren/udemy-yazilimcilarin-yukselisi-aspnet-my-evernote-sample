@@ -26,7 +26,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
             // FluentAPI
 
             modelBuilder.Entity<Note>()
-                .HasMany(n => n.Commnets)
+                .HasMany(n => n.Comments)
                 .WithRequired(c => c.Note)
                 .WillCascadeOnDelete(true);
 
