@@ -29,13 +29,13 @@ namespace MyEvernote.Entities
 
         public virtual EvernoteUser Owner { get; set; }
         public virtual Category Category { get; set; }
-        public virtual List<Comment> Commnets { get; set; }
+        public virtual List<Comment> Comments { get; set; }
         public virtual List<Liked> Likes { get; set; }
 
 
         public Note()
         {
-            Commnets = new List<Comment>();
+            Comments = new List<Comment>();
             Likes = new List<Liked>();
         }
     }

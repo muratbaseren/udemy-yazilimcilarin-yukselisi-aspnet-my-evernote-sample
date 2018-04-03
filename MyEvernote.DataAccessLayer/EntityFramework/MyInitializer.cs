@@ -122,7 +122,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                             ModifiedUsername = comment_owner.Username
                         };
 
-                        note.Commnets.Add(comment);
+                        note.Comments.Add(comment);
                     }
 
                     // Adding fake likes..

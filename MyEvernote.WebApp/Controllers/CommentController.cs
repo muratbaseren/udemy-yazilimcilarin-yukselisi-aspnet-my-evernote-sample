@@ -26,14 +26,14 @@ namespace MyEvernote.WebApp.Controllers
             }
 
             //Note note = noteManager.Find(x => x.Id == id);
-            Note note = noteManager.ListQueryable().Include("Commnets").FirstOrDefault(x => x.Id == id);
+            Note note = noteManager.ListQueryable().Include("Comments").FirstOrDefault(x => x.Id == id);
 
             if (note == null)
             {
                 return HttpNotFound();
             }
 
-            return PartialView("_PartialComments", note.Commnets);
+            return PartialView("_PartialComments", note.Comments);
         }
 
         [Auth]

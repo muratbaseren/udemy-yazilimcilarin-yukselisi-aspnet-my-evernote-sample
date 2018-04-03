@@ -27,7 +27,7 @@ namespace MyEvernote.BusinessLayer
                 }
 
                 // Note ile ilişkili comment'lerin silinmesi
-                foreach (Comment comment in note.Commnets.ToList())
+                foreach (Comment comment in note.Comments.ToList())
                 {
                     commentManager.Delete(comment);
                 }
