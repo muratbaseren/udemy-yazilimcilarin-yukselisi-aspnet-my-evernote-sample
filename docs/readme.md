@@ -1,4 +1,4 @@
-# Udemy-MyEvernote-Sample-Project
+# MyEvernote Sample Project
 
 ![Project Build Status](https://muratbaseren.visualstudio.com/_apis/public/build/definitions/48351f23-810b-4665-b2c0-41000b2ec994/1/badge)
 
