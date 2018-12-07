@@ -92,6 +92,11 @@
                     <li>
                         @Bootstrap.LinkMenu("/Home/About", "info-sign", " Hakkımızda")
                     </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            Version : @(System.Reflection.Assembly.GetAssembly(typeof(MvcApplication))?.GetName().Version.ToString())
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (CurrentSession.User == null)
