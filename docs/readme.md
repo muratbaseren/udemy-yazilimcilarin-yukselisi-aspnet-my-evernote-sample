@@ -1,6 +1,6 @@
 # MyEvernote Sample Project
 
-![Project Build Status](https://muratbaseren.visualstudio.com/_apis/public/build/definitions/48351f23-810b-4665-b2c0-41000b2ec994/1/badge)
+[![Build status](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_apis/build/status/builds/UdemyMyEvernoteSampleProject-Azure%20Web%20App)](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_build/latest?definitionId=2)
 
 [ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
 
