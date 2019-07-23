@@ -16,6 +16,8 @@ namespace MyEvernote.WebApp.Controllers
     [Auth]
     [AuthAdmin]
     [Exc]
+
+    //for pull request
     public class CategoryController : Controller
     {
         private CategoryManager categoryManager = new CategoryManager();
