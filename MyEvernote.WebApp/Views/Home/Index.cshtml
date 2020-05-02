@@ -35,10 +35,10 @@
                             </div>
                         </div>
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="fa fa-chevron-left"></span>
                         </a>
                         <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="fa fa-chevron-right"></span>
                         </a>
                     </div>
                 </div>
@@ -58,15 +58,15 @@
                                     </a>
                                 </h4>
                                 <h6 class="text-right">
-                                    @note.Owner.Username <span class="glyphicon glyphicon-user"></span><br />
-                                    @note.ModifiedOn.ToString("dd.MM.yy HH:mm") <span class="glyphicon glyphicon-time"></span>
+                                    @note.Owner.Username <span class="fa fa-user"></span><br />
+                                    @note.ModifiedOn.ToString("dd.MM.yy HH:mm") <span class="fa fa-time"></span>
                                 </h6>
 
                                 @if (string.IsNullOrEmpty(note.Text) == false && note.Text.Length > 70)
                                 {
                                     <p>@(note.Text.Substring(0, 70) + "...")</p>
                                     <p class="pull-right">
-                                        <a href="#" data-toggle="modal" data-target="#modal_notedetail" data-note-id="@note.Id" class="btn btn-default btn-sm">devamı <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                        <a href="#" data-toggle="modal" data-target="#modal_notedetail" data-note-id="@note.Id" class="btn btn-default btn-sm">devamı <span class="fa fa-chevron-right"></span></a>
                                     </p>
                                 }
                                 else
@@ -81,12 +81,12 @@
                             <div class="ratings">
                                 <p class="pull-right">
                                     <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_comment" data-note-id="@note.Id">
-                                        <span class="glyphicon glyphicon-comment"></span> Yorumlar
+                                        <span class="fa fa-comment"></span> Yorumlar
                                     </button>
                                 </p>
                                 <p>
                                     <button class="btn btn-default btn-sm" type="button" data-liked="false" data-note-id="@note.Id">
-                                        <span class="glyphicon glyphicon-star-empty like-star"></span>&nbsp;
+                                        <span class="fa fa-star-empty like-star"></span>&nbsp;
                                         <span class="like-count">@note.LikeCount</span>
                                     </button>
                                 </p>

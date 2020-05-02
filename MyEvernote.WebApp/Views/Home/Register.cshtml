@@ -22,22 +22,22 @@
                     @Html.ValidationSummary(false)
 
                     <div class="input-group ">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-user" aria-hidden="true"></span></span>
                         @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı adınız" })
                     </div>
 
                     <div class="input-group ">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-envelope" aria-hidden="true"></span></span>
                         @Html.TextBoxFor(model => model.EMail, new { @class = "form-control", placeholder = "E-posta adresiniz." })
                     </div>
 
                     <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-lock" aria-hidden="true"></span></span>
                         @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifreniz", type = "password" })
                     </div>
 
                     <div class="input-group ">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                        <span class="input-group-addon"><span class="fa fa-lock" aria-hidden="true"></span></span>
                         @Html.TextBoxFor(model => model.RePassword, new { @class = "form-control", placeholder = "Şifreniz(Tekrar)", type = "password" })
                     </div>
 
