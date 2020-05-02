@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -15,7 +17,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyEvernote.WebApp</RootNamespace>
     <AssemblyName>MyEvernote.WebApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -32,6 +34,9 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <TypeScriptToolsVersion>3.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,12 +57,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -74,10 +77,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -117,6 +116,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -137,22 +140,113 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Code\Bootstrap.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\comment.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <None Include="Scripts\jquery-3.5.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.0.js" />
+    <Content Include="Scripts\jquery-3.5.0.min.js" />
+    <Content Include="Scripts\jquery-3.5.0.slim.js" />
+    <Content Include="Scripts\jquery-3.5.0.slim.min.js" />
     <Content Include="Scripts\like.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\NoteDetailPopup.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -216,6 +310,18 @@
     <Content Include="Views\Shared\_PartialNoteText.cshtml" />
     <Content Include="Views\Home\AccessDenied.cshtml" />
     <Content Include="Views\Home\HasError.cshtml" />
+    <Content Include="Scripts\jquery-3.5.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.0.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -245,11 +351,18 @@
       <Name>MyEvernote.Entities</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
@@ -276,7 +389,10 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
