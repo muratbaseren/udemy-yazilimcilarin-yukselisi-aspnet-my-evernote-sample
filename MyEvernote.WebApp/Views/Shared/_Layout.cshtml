@@ -1,8 +1,4 @@
-﻿@using MyEvernote.WebApp
-@using MyEvernote.Entities
-@using MyEvernote.WebApp.Models
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,90 +26,12 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/Home/Index">My Evernote</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    @Html.Partial("_PartialNavbar")
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-
-                @if (CurrentSession.User != null)
-                {
-                    <li class="nav-item dropdown">
-                        <a href="/Note/MyNotes" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="fa fa-wrench"></span> Yönetim <span class="caret"></span>
-                        </a>
-                        <div class="dropdown-menu">
-                            @Bootstrap.DropdownLinkMenu("/Note/Create", "plus", " Not Ekle")
-                            @Bootstrap.DropdownDivider()
-                            @Bootstrap.DropdownLinkMenu("/Note/Index", "th-list", " Notlarım")
-                            @Bootstrap.DropdownLinkMenu("/Note/MyLikedNotes", "heart", " Beğendiklerim")
-
-                            @if (CurrentSession.User.IsAdmin)
-                            {
-                                @Bootstrap.DropdownDivider()
-                                @Bootstrap.DropdownLinkMenu("/Category/Create", "plus", " Kategori Ekle")
-                                @Bootstrap.DropdownLinkMenu("/Category/Index", "th-list", " Kategoriler")
-                                @Bootstrap.DropdownDivider()
-                                @Bootstrap.DropdownLinkMenu("/EvernoteUser/Create", "plus", " Kullanıcı Ekle")
-                                @Bootstrap.DropdownLinkMenu("/EvernoteUser/Index", "th-list", " Kullanıcılar")
-                            }
-                        </div>
-                    </li>
-                }
-                <li class="nav-item">
-                    @Bootstrap.LinkMenu("/Home/MostLiked", "star", " En Beğenilenler")
-                </li>
-                <li class="nav-item">
-                    @Bootstrap.LinkMenu("/Home/Index", "th-list", " Son Yazılar")
-                </li>
-                <li class="nav-item">
-                    @Bootstrap.LinkMenu("/Home/About", "info-sign", " Hakkımızda")
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
-                        <b>Version : @(System.Reflection.Assembly.GetAssembly(typeof(MvcApplication))?.GetName().Version.ToString())</b>
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                @if (CurrentSession.User == null)
-                {
-                    <li class="nav-item">
-                        @Bootstrap.LinkMenu("/Home/Login", "sign-in", " Giriş")
-                    </li>
-                    <li class="nav-item">
-                        @Bootstrap.LinkMenu("/Home/Register", "user", " Üye Ol")
-                    </li>
-                }
-                else
-                {
-                    <li class="nav-item dropdown">
-                        <a href="/Home/ShowProfile" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="fa fa-user"></span> @CurrentSession.User.Username <span class="caret"></span>
-                        </a>
-                        <div class="dropdown-menu">
-                            @Bootstrap.DropdownLinkMenu("/Home/ShowProfile", "user", " Profili Göster")
-                            @Bootstrap.DropdownDivider()
-                            @Bootstrap.DropdownLinkMenu("/Home/EditProfile", "edit", " Profili Düzenle")
-                            <a href="/Home/DeleteProfile" onclick="return confirm('Hesabınızı silmek istediğinize emin misiniz?');">
-                                <span class="fa fa-trash"></span> Profili Sil
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        @Bootstrap.LinkMenu("/Home/Logout", "sign-out", " Çıkış")
-                    </li>
-                }
-
-            </ul>
-        </div>
-    </nav>
-
-    @RenderBody()
+    <!-- Page Content -->
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
 
     @RenderSection("footer", required: false)
 

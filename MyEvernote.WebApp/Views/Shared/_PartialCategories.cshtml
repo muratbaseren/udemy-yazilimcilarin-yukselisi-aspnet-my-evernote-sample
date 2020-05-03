@@ -5,12 +5,16 @@
     List<Category> list = CacheHelper.GetCategoriesFromCache();
 }
 
-<p class="lead">Kategoriler</p>
+<p class="display-4">Kategoriler</p>
 <div class="list-group">
-    <a href="@Url.Action("Index","Home")" class="list-group-item"><span class="fa fa-arrow-right"></span> Tümü</a>
+    <a href="@Url.Action("Index","Home")" class="list-group-item list-group-item-action">
+        <i class="fa fa-th-list mr-2"></i>Tümü
+    </a>
 
     @foreach (Category cat in list)
     {
-        <a href="/Home/ByCategory/@cat.Id" title="@cat.Description" class="list-group-item"><span class="fa fa-arrow-right"></span> @cat.Title</a>
+        <a href="/Home/ByCategory/@cat.Id" title="@cat.Description" class="list-group-item list-group-item-action">
+            <i class="fa fa-th-list mr-2"></i>@cat.Title
+        </a>
     }
 </div>
