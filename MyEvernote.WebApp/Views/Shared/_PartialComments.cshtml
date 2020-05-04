@@ -12,33 +12,69 @@
     <div class="media">
         <div class="media-left media-top">
             <div class="media-object">
-                <span class="fa fa-comment"></span>
+                <img src="~/Images/user_boy.png" width="30" height="30" class="rounded-circle img-thumbnail" />
             </div>
         </div>
+
         <div class="media-body">
-            <div>
-                <span class="col-md-10" id="comment_text_@item.Id" contenteditable="false">
-                    @item.Text
-                </span>
-
-                @if (user != null && user.Id == item.Owner.Id)
-                {
-                    <span class="col-md-2 text-right">
-                        <button type="button" class="btn btn-warning btn-xs" data-edit-mode="false" onclick="doComment(this,'edit_clicked',@item.Id,'#comment_text_@item.Id');">
-                            <span class="fa fa-edit"></span>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs" onclick="doComment(this,'delete_clicked',@item.Id);">
-                            <span class="fa fa-trash"></span>
-                        </button>
-                    </span>
-                }
-
-                <small class="col-md-12 text-right">
-                    <span class="fa fa-time"></span> @item.ModifiedOn &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="fa fa-user"></span> @item.Owner.Username
-                </small>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-8 pl-4">
+                        <small class="text-muted">
+                            <span>@item.Owner.Username</span>
+                            <span class="mx-2">-</span>
+                            <span>@item.ModifiedOn</span>
+                        </small>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        @if (user != null && user.Id == item.Owner.Id)
+                        {
+                            <button type="button" class="btn btn-light btn-sm" data-edit-mode="false" onclick="doComment(this,'edit_clicked',@item.Id,'#comment_text_@item.Id');">
+                                <i class="fa fa-edit text-warning"></i>
+                            </button>
+                            <button type="button" class="btn btn-light btn-sm" onclick="doComment(this,'delete_clicked',@item.Id);">
+                                <i class="fa fa-trash text-danger"></i>
+                            </button>
+                        }
+                    </div>
+                    <div class="col-md-12 pl-4">
+                        @*<i class="fa fa-comment-o mr-2"></i>*@
+                        <span id="comment_text_@item.Id" contenteditable="false">
+                            @item.Text
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
+
+
+        @*<div class="media-body">
+                <div>
+                    <span class="col-md-10" id="comment_text_@item.Id" contenteditable="false">
+                        @item.Text
+                    </span>
+
+                    @if (user != null && user.Id == item.Owner.Id)
+                    {
+                        <span class="col-md-2 text-right">
+                            <button type="button" class="btn btn-warning btn-xs" data-edit-mode="false" onclick="doComment(this,'edit_clicked',@item.Id,'#comment_text_@item.Id');">
+                                <span class="fa fa-edit"></span>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs" onclick="doComment(this,'delete_clicked',@item.Id);">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                        </span>
+                    }
+
+                    <small class="col-md-12 text-right">
+                        <span class="fa fa-time"></span> @item.ModifiedOn &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="fa fa-user"></span> @item.Owner.Username
+                    </small>
+                </div>
+            </div>*@
     </div>
 }
 

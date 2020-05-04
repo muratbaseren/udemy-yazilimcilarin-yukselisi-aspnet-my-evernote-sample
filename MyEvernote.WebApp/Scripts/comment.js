@@ -22,11 +22,11 @@ function doComment(btn, e, commentid, spanid) {
     if (e === "edit_clicked") {
         if (!mode) {
             button.data("edit-mode", true);
-            button.removeClass("btn-warning");
-            button.addClass("btn-success");
-            var btnSpan = button.find("span");
-            btnSpan.removeClass("glyphicon-edit");
-            btnSpan.addClass("glyphicon-ok");
+            var btnSpan = button.find("i");
+            btnSpan.removeClass("fa-edit");
+            btnSpan.addClass("fa-check");
+            btnSpan.removeClass("text-warning");
+            btnSpan.addClass("text-success");
 
             $(spanid).addClass("editable");
             $(spanid).attr("contenteditable", true);
@@ -34,11 +34,11 @@ function doComment(btn, e, commentid, spanid) {
         }
         else {
             button.data("edit-mode", false);
-            button.addClass("btn-warning");
-            button.removeClass("btn-success");
-            var btnSpan = button.find("span");
-            btnSpan.addClass("glyphicon-edit");
-            btnSpan.removeClass("glyphicon-ok");
+            var btnSpan = button.find("i");
+            btnSpan.addClass("fa-edit");
+            btnSpan.removeClass("fa-check");
+            btnSpan.addClass("text-warning");
+            btnSpan.removeClass("text-success");
 
             $(spanid).removeClass("editable");
             $(spanid).attr("contenteditable", false);
