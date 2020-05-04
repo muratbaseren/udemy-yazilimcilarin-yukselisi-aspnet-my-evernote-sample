@@ -94,9 +94,15 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                 {
                     EvernoteUser owner = userlist[FakeData.NumberData.GetNumber(0, userlist.Count - 1)];
 
+                    string title = FakeData.TextData.GetSentence();
+                    if(title.Length > 50)
+                    {
+                        title = title.Substring(0, 50);
+                    }
+
                     Note note = new Note()
                     {
-                        Title = FakeData.TextData.GetAlphabetical(FakeData.NumberData.GetNumber(5, 25)),
+                        Title = title,
                         Text = FakeData.TextData.GetSentences(FakeData.NumberData.GetNumber(1, 3)),
                         IsDraft = false,
                         LikeCount = FakeData.NumberData.GetNumber(1, 9),
