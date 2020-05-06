@@ -4,19 +4,20 @@
     ViewBag.Title = "Notlarım";
 }
 
-<div class="row">
-
-    <div class="col-md-10 col-md-offset-1">
-        <h2>@ViewBag.Title</h2>
-        <hr />
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
+
+<div class="row pl-5 mr-0">
+    <div class="col-md-12">
         <p>
-            @Bootstrap.LinkButton("/Note/Create", "primary", string.Empty, string.Empty, "plus", " Yeni")
+            @Bootstrap.LinkButton("/Note/Create", "primary","btn-sm", string.Empty, "plus", "Yeni Not Ekle")
         </p>
-        <table class="table">
+        <table class="table table-hover table-striped table-sm small">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Category.Title)
@@ -48,22 +49,29 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Text)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsDraft)
+                    <td class="text-center">
+                        @if (item.IsDraft)
+                        {
+                            <i class="fa fa-check text-success"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-times text-danger"></i>
+                        }
                     </td>
-                    <td>
+                    <td class="text-center">
                         @Html.DisplayFor(modelItem => item.LikeCount)
                     </td>
-                    <td width="150">
-                        <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#modal_comment" data-note-id="@item.Id">
+                    <td width="150"  class="text-right">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_comment" data-note-id="@item.Id">
                             <span class="fa fa-comment"></span>
                         </button>
 
-                        @Bootstrap.LinkButton("/Note/Edit/" + item.Id, "warning", "btn-xs", "Düzenle", "edit", string.Empty)
+                        @Bootstrap.LinkButton("/Note/Edit/" + item.Id, "warning", "btn-sm", "Düzenle", "edit", string.Empty)
 
-                        @Bootstrap.LinkButton("/Note/Details/" + item.Id, "info", "btn-xs", "Detaylar", "search", string.Empty)
+                        @Bootstrap.LinkButton("/Note/Details/" + item.Id, "info", "btn-sm", "Detaylar", "search", string.Empty)
 
-                        @Bootstrap.LinkButton("/Note/Delete/" + item.Id, "danger", "btn-xs", "Kaldır", "trash", string.Empty)
+                        @Bootstrap.LinkButton("/Note/Delete/" + item.Id, "danger", "btn-sm", "Kaldır", "trash", string.Empty)
                     </td>
                 </tr>
             }

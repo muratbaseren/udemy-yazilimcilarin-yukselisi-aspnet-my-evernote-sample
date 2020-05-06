@@ -4,62 +4,69 @@
     ViewBag.Title = "Not Detay";
 }
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>@ViewBag.Title</h2>
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h4>Not</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
+<div class="row pl-5 mr-0">
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Category.Title)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Category.Title)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Title)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Title)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Text)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Text)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.IsDraft)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsDraft)
+            <dd class="col-md-9">
+                @if (Model.IsDraft)
+                {
+                    <i class="fa fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fa fa-times text-danger"></i>
+                }
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.LikeCount)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.LikeCount)
             </dd>
 
         </dl>
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 pl-0">
             <p>
+                @Bootstrap.LinkButton("/Note/Index", "secondary", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
                 @Bootstrap.LinkButton("/Note/Edit/" + Model.Id, "warning", string.Empty, string.Empty, "edit", " Düzenle")
-                @Bootstrap.LinkButton("/Note/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
             </p>
         </div>
     </div>

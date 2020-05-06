@@ -4,70 +4,144 @@
     ViewBag.Title = "Notu Kaldır";
 }
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>@ViewBag.Title</h2>
-        <h3>Silmek istediğinize emin misiniz?</h3>
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
+        <p class="text-danger font-weight-bold">Silmek istediğinize emin misiniz?</p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h4>Not</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
+<div class="row pl-5 mr-0">
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Category.Title)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Category.Title)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Title)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Title)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Text)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Text)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.IsDraft)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsDraft)
+            <dd class="col-md-9">
+                @if (Model.IsDraft)
+                {
+                    <i class="fa fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fa fa-times text-danger"></i>
+                }
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.LikeCount)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.LikeCount)
             </dd>
 
         </dl>
+        <div class="col-md-10 pl-0">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    @Bootstrap.LinkButton("/Note/Index", "secondary", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+                    @Bootstrap.Button("danger", string.Empty, "submit", "trash", "Kaldır")
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
-            <div class="form-actions no-color">
-                @Bootstrap.Button("danger", string.Empty, "submit", "remove", " Kaldır")
-                @Bootstrap.LinkButton("/Note/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
-            </div>
-        }
-
+@*<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>@ViewBag.Title</h2>
+            <h3>Silmek istediğinize emin misiniz?</h3>
+        </div>
     </div>
 
-</div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Not</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Category.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Text)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Text)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsDraft)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsDraft)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LikeCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LikeCount)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @Bootstrap.Button("danger", string.Empty, "submit", "remove", " Kaldır")
+                    @Bootstrap.LinkButton("/Note/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+                </div>
+            }
+
+        </div>
+
+    </div>*@
