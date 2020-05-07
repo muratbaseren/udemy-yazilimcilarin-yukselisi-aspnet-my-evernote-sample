@@ -5,54 +5,54 @@
     ViewBag.Title = "Kategori Detay";
 }
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>@ViewBag.Title</h2>
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h4>Kategori</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
+<div class="row pl-5 mr-0">
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Title)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Title)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Description)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.CreatedOn)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.CreatedOn)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.ModifiedOn)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.ModifiedOn)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.ModifiedUsername)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.ModifiedUsername)
             </dd>
 
@@ -61,8 +61,8 @@
     </div>
     <div class="col-md-8 col-md-offset-2">
         <p>
-            @Bootstrap.LinkButton("/Category/Edit/" + Model.Id, "warning", string.Empty, string.Empty, "edit", " Düzenle")
-            @Bootstrap.LinkButton("/Category/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+            @Bootstrap.LinkButton("/Category/Index", "secondary", string.Empty, string.Empty, "arrow-left", "Geri Dön!")
+            @Bootstrap.LinkButton("/Category/Edit/" + Model.Id, "warning", string.Empty, string.Empty, "edit", "Düzenle")
         </p>
     </div>
 </div>
