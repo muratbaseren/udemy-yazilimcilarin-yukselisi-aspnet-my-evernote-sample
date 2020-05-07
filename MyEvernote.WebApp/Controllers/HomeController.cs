@@ -41,7 +41,7 @@ namespace MyEvernote.WebApp.Controllers
             //}
 
 
-            return View(noteManager.ListQueryable().Where(x => x.IsDraft == false).Take(12).OrderByDescending(x => x.ModifiedOn).ToList());
+            return View(noteManager.ListQueryable().Where(x => x.IsDraft == false).OrderByDescending(x => x.ModifiedOn).ToList());
             //return View(nm.GetAllNoteQueryable().OrderByDescending(x => x.ModifiedOn).ToList());
         }
 
