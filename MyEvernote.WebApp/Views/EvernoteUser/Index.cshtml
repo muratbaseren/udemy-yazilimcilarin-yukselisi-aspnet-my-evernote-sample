@@ -5,20 +5,21 @@
     ViewBag.Title = "Kullanıcılar";
 }
 
-<div class="row">
-
-    <div class="col-md-10 col-md-offset-1">
-        <h2>@ViewBag.Title</h2>
-        <hr />
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
+
+<div class="row pl-5 mr-0">
+    <div class="col-md-12">
 
         <p>
-            @Bootstrap.LinkButton("/EvernoteUser/Create", "primary", string.Empty,string.Empty, "plus", " Yeni")
+            @Bootstrap.LinkButton("/EvernoteUser/Create", "primary", " btn-sm", string.Empty, "plus", "Yeni Kullanıcı Ekle")
         </p>
-        <table class="table">
+        <table class="table table-hover table-striped table-sm small">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
@@ -35,10 +36,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Password)
                 </th>
-                <th>
+                <th class="text-center">
                     @Html.DisplayNameFor(model => model.IsActive)
                 </th>
-                <th>
+                <th class="text-center">
                     @Html.DisplayNameFor(model => model.IsAdmin)
                 </th>
                 <th>
@@ -71,11 +72,25 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Password)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsActive)
+                    <td class="text-center">
+                        @if (item.IsActive)
+                        {
+                            <i class="fa fa-check text-success"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-times text-danger"></i>
+                        }
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IsAdmin)
+                    <td class="text-center">
+                        @if (item.IsAdmin)
+                        {
+                            <i class="fa fa-check text-success"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-times text-danger"></i>
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CreatedOn)
@@ -87,11 +102,11 @@
                         @Html.DisplayFor(modelItem => item.ModifiedUsername)
                     </td>
                     <td>
-                        @Bootstrap.LinkButton("/EvernoteUser/Edit/" + item.Id, "warning", "btn-xs", "Düzenle", "edit", string.Empty)
+                        @Bootstrap.LinkButton("/EvernoteUser/Edit/" + item.Id, "warning", "btn-sm", "Düzenle", "edit", string.Empty)
 
-                        @Bootstrap.LinkButton("/EvernoteUser/Details/" + item.Id, "info", "btn-xs", "Detaylar", "search", string.Empty)
+                        @Bootstrap.LinkButton("/EvernoteUser/Details/" + item.Id, "info", "btn-sm", "Detaylar", "search", string.Empty)
 
-                        @Bootstrap.LinkButton("/EvernoteUser/Delete/" + item.Id, "danger", "btn-xs", "Kaldır", "trash", string.Empty)
+                        @Bootstrap.LinkButton("/EvernoteUser/Delete/" + item.Id, "danger", "btn-sm", "Kaldır", "trash", string.Empty)
                     </td>
 
                 </tr>

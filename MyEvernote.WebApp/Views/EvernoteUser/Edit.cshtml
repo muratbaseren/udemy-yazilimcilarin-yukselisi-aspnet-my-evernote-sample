@@ -7,86 +7,80 @@
 
 <link href="~/Content/validation-summary.css" rel="stylesheet" />
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>@ViewBag.Title</h2>
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
+<div class="row pl-5 mr-0">
+    <div class="col-md-10">
+
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
 
-            <div class="form-horizontal">
-                <h4>Kullanıcı</h4>
-                <hr />
-                @Html.ValidationSummary(false)
-
-                @Html.HiddenFor(model => model.Id)
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
+            <div class="form-group row">
+                <div class="col-md-12 pr-0">
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                <div class="checkbox col-md-4">
+                    @Html.EditorFor(model => model.IsActive)
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.IsAdmin, htmlAttributes: new { @class = "col-form-label font-weight-bold col-md-2" })
+
+                <div class="checkbox col-md-4">
+                    @Html.EditorFor(model => model.IsAdmin)
                 </div>
+            </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.IsActive)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IsAdmin, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.IsAdmin)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Bootstrap.Button("success", string.Empty, "submit", "floppy-saved", " Kaydet")
-                        @Bootstrap.LinkButton("/EvernoteUser/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
-                    </div>
+            <div class="form-group row">
+                <div class="col-md-6 text-right pr-0">
+                    @Bootstrap.LinkButton("/EvernoteUser/Index", "secondary", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+                    @Bootstrap.Button("success", string.Empty, "submit", "save", " Kaydet")
                 </div>
             </div>
         }
-
     </div>
 </div>

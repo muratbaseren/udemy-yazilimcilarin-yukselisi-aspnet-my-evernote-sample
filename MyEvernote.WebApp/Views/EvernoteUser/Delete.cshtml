@@ -5,111 +5,124 @@
     ViewBag.Title = "Kullanıcı Sil";
 }
 
-
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>@ViewBag.Title</h2>
-        <h3>Silmek istediğinize emin misiniz?</h3>
+<div class="row pl-5 pt-3 mr-0">
+    <div class="col-md-12">
+        <p class="display-4 border-bottom">
+            @ViewBag.Title
+        </p>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h4>Kullanıcı</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
+<div class="row pl-5 mr-0">
+    <div class="col-md-8">
+        <dl class="row">
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Name)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Surname)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Surname)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Username)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Username)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Email)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Email)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.Password)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.Password)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.IsActive)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsActive)
+            <dd class="col-md-9">
+                @if (Model.IsActive)
+                {
+                    <i class="fa fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fa fa-times text-danger"></i>
+                }
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.IsAdmin)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsAdmin)
+            <dd class="col-md-9">
+                @if (Model.IsAdmin)
+                {
+                    <i class="fa fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fa fa-times text-danger"></i>
+                }
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.CreatedOn)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.CreatedOn)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.ModifiedOn)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.ModifiedOn)
             </dd>
 
-            <dt>
+            <dt class="col-md-3">
                 @Html.DisplayNameFor(model => model.ModifiedUsername)
             </dt>
 
-            <dd>
+            <dd class="col-md-9">
                 @Html.DisplayFor(model => model.ModifiedUsername)
             </dd>
 
         </dl>
+        <div class="col-md-10 pl-0">
+            <p>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-actions no-color">
-                @Bootstrap.Button("danger", string.Empty, "submit", "remove", " Kaldır")
-                @Bootstrap.LinkButton("/EvernoteUser/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
-            </div>
-        }
-
+                    <div class="form-actions no-color">
+                        @Bootstrap.LinkButton("/EvernoteUser/Index", "secondary", string.Empty, string.Empty, "arrow-left", "Geri Dön!")
+                        @Bootstrap.Button("danger", string.Empty, "submit", "trash", "Kaldır")
+                    </div>
+                }
+            </p>
+        </div>
     </div>
-
 </div>
