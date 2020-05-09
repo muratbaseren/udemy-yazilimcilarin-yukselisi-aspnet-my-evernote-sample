@@ -1,4 +1,4 @@
-# MyEvernote Sample Project
+# Udemy - ASPNET Yazılımcıların Yükselişi Eğitimi : MyEvernote Örnek Projesi
 
 [![Build Status](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_apis/build/status/muratbaseren.Udemy-MyEvernote-Sample-Project?branchName=master)](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_build/latest?definitionId=3&branchName=master)
 
