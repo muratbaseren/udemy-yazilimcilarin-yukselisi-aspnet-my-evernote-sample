@@ -2,7 +2,7 @@
 
 [![Build Status](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_apis/build/status/muratbaseren.Udemy-MyEvernote-Sample-Project?branchName=master)](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_build/latest?definitionId=3&branchName=master)
 
-[ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
+> [ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
 
 ## Turkish
 
@@ -21,8 +21,13 @@ Projenin eğitimde anlatıldığı bootstrap 3.x versiyonu olan halini indirmek 
 ![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/04-myevernote-murat-baseren-udemy-anasayfa.png?raw=true)
 
 ## Bootstrap 4.x Versiyonu Klonlamak (Yenilenmiş Tasarım)
-Projenin sadece tasarımsal olarak yenilenmiş bootstrap 4.x versiyonu olan halini indirmek için aşağıdaki komutu CMD, PowerShell ya da Git Bash üzerinde bilgisayarınızda projeyi indirmek istediğiniz yerde çalıştırabilirsiniz..
+Projenin **NET Framework 4.7.2 ye, Entity Framework 6.4 'e ve bootstrap 4.x** versiyonuna yenilenmiş olan halini indirmek için aşağıdaki komutu CMD, PowerShell ya da Git Bash üzerinde bilgisayarınızda projeyi indirmek istediğiniz yerde çalıştırabilirsiniz..
 
 `git clone --single-branch --branch bs4 https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project.git`
 
 ![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/bs4-01-anasayfa.png?raw=true)
+
+## Bootstrap 3.x den Bootstrap 4.x e Tasarım Yenilenmesi Videolu Anlatım
+Aşağıdaki youtube oynatma listesinde eğitimde yer alan projenin tasarımının bootstrap 4.x e nasıl yenilendiğini ve iyileştirildiğini öğrenebilirsiniz.
+
+[![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/play_video_image_.png?raw=true)](https://www.youtube.com/playlist?list=PLTwspLzO8aqgqfyfSwMWiF6HzoSTlO7jl)
