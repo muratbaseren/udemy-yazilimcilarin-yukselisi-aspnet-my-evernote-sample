@@ -156,9 +156,21 @@ namespace MyEvernote.WebApp.Controllers
         {
             if(CurrentSession.User != null)
             {
-                List<int> likedNoteIds = likedManager.List(
-                    x => x.LikedUser.Id == CurrentSession.User.Id && ids.Contains(x.Note.Id)).Select(
-                    x => x.Note.Id).ToList();
+                int userid = CurrentSession.User.Id;
+                List<int> likedNoteIds = new List<int>();
+
+                if (ids != null)
+                {
+                    likedNoteIds = likedManager.List(
+                        x => x.LikedUser.Id == userid && ids.Contains(x.Note.Id)).Select(
+                        x => x.Note.Id).ToList();
+                }
+                else
+                {
+                    likedNoteIds = likedManager.List(
+                        x => x.LikedUser.Id == userid).Select(
+                        x => x.Note.Id).ToList();
+                }
 
                 return Json(new { result = likedNoteIds });
             }
