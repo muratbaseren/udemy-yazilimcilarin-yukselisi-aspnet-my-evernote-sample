@@ -1,8 +1,8 @@
-# MyEvernote Sample Project
+# Udemy - ASPNET Yazılımcıların Yükselişi Eğitimi : MyEvernote Örnek Projesi
 
 [![Build Status](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_apis/build/status/muratbaseren.Udemy-MyEvernote-Sample-Project?branchName=master)](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_build/latest?definitionId=3&branchName=master)
 
-[ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
+> [ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
 
 ## Turkish
 
@@ -13,22 +13,21 @@ My sample project for my course that is "**ASP.NET MVC Yazılımcıların Yükse
 
 You can find the step-by-step explanation of this project from starting to finishing in the above course that is **46.5 hours lesson-time**. Course includes **MVC training from end to end** and **n-layered corporate project sample end-to-end**. You can buy with discount from above link.
 
-## Screenshots
+## Bootstrap 3.x Versiyonu Klonlamak
+Projenin eğitimde anlatıldığı bootstrap 3.x versiyonu olan halini indirmek için aşağıdaki komutu CMD, PowerShell ya da Git Bash üzerinde bilgisayarınızda projeyi indirmek istediğiniz yerde çalıştırabilirsiniz..
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/04-myevernote-murat-baseren-udemy-anasayfa.png)
+`git clone --single-branch --branch master https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project.git`
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/05-myevernote-murat-baseren-udemy-not-detay-goruntuleme.png)
+![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/04-myevernote-murat-baseren-udemy-anasayfa.png?raw=true)
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/01-myevernote-murat-baseren-udemy-giris-ekrani.png)
+## Bootstrap 4.x Versiyonu Klonlamak (Yenilenmiş Tasarım)
+Projenin **NET Framework 4.7.2 ye, Entity Framework 6.4 'e ve bootstrap 4.x** versiyonuna yenilenmiş olan halini indirmek için aşağıdaki komutu CMD, PowerShell ya da Git Bash üzerinde bilgisayarınızda projeyi indirmek istediğiniz yerde çalıştırabilirsiniz..
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/02-myevernote-murat-baseren-udemy-uye-ol-ekrani.png)
+`git clone --single-branch --branch bs4 https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project.git`
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/03-myevernote-murat-baseren-udemy-anasayfa-giris-yaparak.png)
+![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/bs4-01-anasayfa.png?raw=true)
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/05-myevernote-murat-baseren-udemy-not-detay-goruntuleme.png)
+## Bootstrap 3.x den Bootstrap 4.x e Tasarım Yenilenmesi Videolu Anlatım
+Aşağıdaki youtube oynatma listesinde eğitimde yer alan projenin tasarımının bootstrap 4.x e nasıl yenilendiğini ve iyileştirildiğini öğrenebilirsiniz.
 
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/06-myevernote-murat-baseren-udemy-not-yonetimi.png)
-
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/07-myevernote-murat-baseren-udemy-not-ekleme.png)
-
-![](https://raw.githubusercontent.com/muratbaseren/Udemy-MyEvernote-Sample-Project/master/docs/08-myevernote-murat-baseren-udemy-yorum-denetleme-ve-cevaplama.png)
+[![](https://github.com/muratbaseren/Udemy-MyEvernote-Sample-Project/blob/master/docs/play_video_image_.png?raw=true)](https://www.youtube.com/playlist?list=PLTwspLzO8aqgqfyfSwMWiF6HzoSTlO7jl)
