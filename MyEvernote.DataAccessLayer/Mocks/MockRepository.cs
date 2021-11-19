@@ -3,41 +3,33 @@ using MyEvernote.Core.DataAccess;
 using MyEvernote.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace MyEvernote.DataAccessLayer.EntityFramework
+namespace MyEvernote.DataAccessLayer.Mocks
 {
-    public class Repository<T> : RepositoryBase, IDataAccess<T> where T : class
+
+    public class MockRepository<T> : IDataAccess<T> where T : class
     {
-        private DbSet<T> _objectSet;
-
-        public Repository()
-        {
-            _objectSet = context.Set<T>();
-        }
-
-
-
         public List<T> List()
         {
-            return _objectSet.ToList();
+            var pi = typeof(MockDataSets).GetProperties().FirstOrDefault(x => x.PropertyType == typeof(List<T>));
+            return (List<T>)pi.GetValue(null);
         }
 
         public IQueryable<T> ListQueryable()
         {
-            return _objectSet.AsQueryable<T>();
+            return List().AsQueryable<T>();
         }
 
         public List<T> List(Expression<Func<T, bool>> where)
         {
-            return _objectSet.Where(where).ToList();
+            return ListQueryable().Where(where).ToList();
         }
 
         public int Insert(T obj)
         {
-            _objectSet.Add(obj);
+            List().Add(obj);
 
             if (obj is MyEntityBase)
             {
@@ -75,18 +67,18 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
             //    o.ModifiedUsername = App.Common.GetUsername();
             //}
 
-            _objectSet.Remove(obj);
+            List().Remove(obj);
             return Save();
         }
 
         public int Save()
         {
-            return context.SaveChanges();
+            return 1;
         }
 
         public T Find(Expression<Func<T, bool>> where)
         {
-            return _objectSet.FirstOrDefault(where);
+            return ListQueryable().FirstOrDefault(where);
         }
     }
 }

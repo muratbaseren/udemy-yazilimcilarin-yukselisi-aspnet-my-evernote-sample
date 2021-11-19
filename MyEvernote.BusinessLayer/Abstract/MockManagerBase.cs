@@ -1,5 +1,5 @@
 ﻿using MyEvernote.Core.DataAccess;
-using MyEvernote.DataAccessLayer.EntityFramework;
+using MyEvernote.DataAccessLayer.Mocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Linq.Expressions;
 
 namespace MyEvernote.BusinessLayer.Abstract
 {
-    public abstract class ManagerBase<T> : IDataAccess<T> where T : class
+    public abstract class MockManagerBase<T> : IDataAccess<T> where T : class
     {
-        private Repository<T> repo = new Repository<T>();
+        private MockRepository<T> repo = new MockRepository<T>();
 
         public virtual int Delete(T obj)
         {

@@ -1,15 +1,12 @@
-﻿using System;
+﻿using MyEvernote.BusinessLayer;
+using MyEvernote.Entities;
+using MyEvernote.WebApp.Filters;
+using MyEvernote.WebApp.Models;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using MyEvernote.Entities;
-using MyEvernote.WebApp.Models;
-using MyEvernote.BusinessLayer;
-using MyEvernote.WebApp.Filters;
 
 namespace MyEvernote.WebApp.Controllers
 {
@@ -75,8 +72,13 @@ namespace MyEvernote.WebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                Category category = categoryManager.Find(x => x.Id == note.CategoryId);
                 note.Owner = CurrentSession.User;
+                note.Category = category;
                 noteManager.Insert(note);
+                category.Notes.Add(note);
+
+
                 return RedirectToAction("Index");
             }
 
@@ -111,9 +113,12 @@ namespace MyEvernote.WebApp.Controllers
 
             if (ModelState.IsValid)
             {
+                Category category = categoryManager.Find(x => x.Id == note.CategoryId);
+
                 Note db_note = noteManager.Find(x => x.Id == note.Id);
                 db_note.IsDraft = note.IsDraft;
                 db_note.CategoryId = note.CategoryId;
+                db_note.Category = category;
                 db_note.Text = note.Text;
                 db_note.Title = note.Title;
 
@@ -146,6 +151,7 @@ namespace MyEvernote.WebApp.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Note note = noteManager.Find(x => x.Id == id);
+            note.Category.Notes.Remove(note);
             noteManager.Delete(note);
             return RedirectToAction("Index");
         }
@@ -154,7 +160,7 @@ namespace MyEvernote.WebApp.Controllers
         [HttpPost]
         public ActionResult GetLiked(int[] ids)
         {
-            if(CurrentSession.User != null)
+            if (CurrentSession.User != null)
             {
                 int userid = CurrentSession.User.Id;
                 List<int> likedNoteIds = new List<int>();
@@ -185,7 +191,7 @@ namespace MyEvernote.WebApp.Controllers
         {
             int res = 0;
 
-            if(CurrentSession.User == null)
+            if (CurrentSession.User == null)
                 return Json(new { hasError = true, errorMessage = "Beğenme işlemi için giriş yapmalısınız.", result = 0 });
 
             Liked like =
@@ -195,15 +201,20 @@ namespace MyEvernote.WebApp.Controllers
 
             if (like != null && liked == false)
             {
+                like.Note.Likes.Remove(like);
                 res = likedManager.Delete(like);
             }
             else if (like == null && liked == true)
             {
-                res = likedManager.Insert(new Liked()
+                Liked like2 = new Liked()
                 {
                     LikedUser = CurrentSession.User,
-                    Note = note
-                });
+                    Note = note,
+                    Id = likedManager.List().Max(x => x.Id) + 1
+                };
+
+                res = likedManager.Insert(like2);
+                note.Likes.Add(like2);
             }
 
             if (res > 0)

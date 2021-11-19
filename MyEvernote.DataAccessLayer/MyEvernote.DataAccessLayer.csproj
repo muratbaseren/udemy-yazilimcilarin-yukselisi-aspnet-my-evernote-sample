@@ -66,6 +66,8 @@
     <Compile Include="EntityFramework\Repository.cs" />
     <Compile Include="EntityFramework\RepositoryBase.cs" />
     <Compile Include="EntityFramework\MyInitializer.cs" />
+    <Compile Include="Mocks\MockDataSets.cs" />
+    <Compile Include="Mocks\MockRepository.cs" />
     <Compile Include="MySql\Repository.cs" />
     <Compile Include="MySql\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

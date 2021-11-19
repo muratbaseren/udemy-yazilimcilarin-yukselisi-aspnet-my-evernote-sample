@@ -58,8 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\MockManagerBase.cs" />
     <Compile Include="CommentManager.cs" />
     <Compile Include="LikedManager.cs" />
+    <Compile Include="MockManager.cs" />
     <Compile Include="Results\BusinessLayerResult.cs" />
     <Compile Include="CategoryManager.cs" />
     <Compile Include="EvernoteUserManager.cs" />

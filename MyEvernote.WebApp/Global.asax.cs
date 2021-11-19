@@ -1,9 +1,8 @@
-﻿using MyEvernote.Common;
+﻿using MyEvernote.BusinessLayer;
+using MyEvernote.Common;
 using MyEvernote.WebApp.Init;
+using MyEvernote.WebApp.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -16,7 +15,14 @@ namespace MyEvernote.WebApp
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
+            MockManager.Initialize();
             App.Common = new WebCommon();
+        }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+            CacheHelper.RemoveCategoriesFromCache();
+            MockManager.Initialize();
         }
     }
 }

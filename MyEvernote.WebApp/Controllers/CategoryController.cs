@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
+﻿using MyEvernote.BusinessLayer;
 using MyEvernote.Entities;
-using MyEvernote.BusinessLayer;
-using MyEvernote.WebApp.Models;
 using MyEvernote.WebApp.Filters;
+using MyEvernote.WebApp.Models;
+using System.Net;
+using System.Web.Mvc;
 
 namespace MyEvernote.WebApp.Controllers
 {

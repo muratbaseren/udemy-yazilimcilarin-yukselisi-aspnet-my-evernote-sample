@@ -1,7 +1,6 @@
 ﻿using MyEvernote.BusinessLayer;
 using MyEvernote.BusinessLayer.Results;
 using MyEvernote.Entities;
-using MyEvernote.Entities.Messages;
 using MyEvernote.Entities.ValueObjects;
 using MyEvernote.WebApp.Filters;
 using MyEvernote.WebApp.Models;

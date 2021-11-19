@@ -2,12 +2,9 @@
 using MyEvernote.Entities;
 using MyEvernote.WebApp.Filters;
 using MyEvernote.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MyEvernote.WebApp.Controllers
@@ -79,6 +76,7 @@ namespace MyEvernote.WebApp.Controllers
 
             if (commentManager.Delete(comment) > 0)
             {
+                comment.Note.Comments.Remove(comment);
                 return Json(new { result = true }, JsonRequestBehavior.AllowGet);
             }
 
@@ -112,6 +110,7 @@ namespace MyEvernote.WebApp.Controllers
 
                 if (commentManager.Insert(comment) > 0)
                 {
+                    note.Comments.Add(comment);
                     return Json(new { result = true }, JsonRequestBehavior.AllowGet);
                 }
             }
