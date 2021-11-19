@@ -2,7 +2,9 @@
 
 [![Build Status](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_apis/build/status/muratbaseren.Udemy-MyEvernote-Sample-Project?branchName=master)](https://muratbaseren.visualstudio.com/UdemyMyEvernoteSampleProject/_build/latest?definitionId=3&branchName=master)
 
-> [ASPNET MVC Yazılımcıların Yükselişi Eğitimi](https://rebrand.ly/kmb-mvc5)
+> [MyEverNote Website Demo](http://udemy-myevernote.azurewebsites.net/)
+
+> [ASPNET MVC Yazılımcıların Yükselişi Eğitimi (Course) (Turkish)](https://rebrand.ly/kmb-mvc5)
 
 ## Turkish
 
